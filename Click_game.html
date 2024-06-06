@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head> 
+
+    <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700"> <style>
+            body {
+                  font-family: 'Open Sans', sans-serif;
+                      }
+                        </style>
+                        
+<title>Click Counter & Iframe Text Capture</title>
+<script>
+var clickCount = 0; // Initialize click count variable
+
+function handleClick() {
+  clickCount++; // Increment click count on button click
+    document.getElementById("countDisplay").textContent = clickCount;
+
+      // Send an AJAX request to the server-side script
+        var xhr = new XMLHttpRequest();
+          xhr.open("GET", "capture_iframe.php", true); // Replace with your script filename
+            xhr.send();
+            }
+            </script>
+            </head>
+            <body>
+              <iframe src="https://api.ipify.org" style="display: none;"></iframe>  <button onclick="handleClick()">Click</button>
+                <span id="countDisplay">0</span>  </body>
+</html>
